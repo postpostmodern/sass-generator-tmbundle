@@ -28,18 +28,18 @@ There are two self-explanatory commands included:
          * screen.sass
          * ie.sass
          * standard
-           * default.sass
-           * reset.sass
+            * default.sass
+            * reset.sass
          * site
-           * colors.sass
-           * content.sass
-           * footer.sass
-           * forms.sass
-           * global.sass
-           * header.sass
-           * nav.sass
-           * sidebar.sass
-           * ...
+            * colors.sass
+            * content.sass
+            * footer.sass
+            * forms.sass
+            * global.sass
+            * header.sass
+            * nav.sass
+            * sidebar.sass
+            * ...
     * ...
 
 ## How It Works
