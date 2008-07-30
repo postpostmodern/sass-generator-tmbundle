@@ -46,6 +46,7 @@ There are two self-explanatory commands included:
 
 When editing a SASS file, hitting cmd-r will walk up the directory tree until it finds the **sass** directory. 
 It will convert each file in the **sass** dir to CSS and place the resulting .css files in the parent directory 
-of the **sass** dir. It will not drill down into the subdirs of **sass**. Those subdirs (e.g. **site** and **standard**
-should contain files that are included in the main SASS files (all.sass, print.sass, etc.).
+of the **sass** dir (usually **css**). It will not drill down into the subdirs of **sass**. Those subdirs (e.g. 
+**site** and **standard** should contain files that are included in the main SASS files (all.sass, print.sass, 
+etc.).
 
