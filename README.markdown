@@ -23,23 +23,23 @@ There are two self-explanatory commands included:
       * screen.css
       * ie.css
       * sass
-         * all.sass
-         * print.sass
-         * screen.sass
-         * ie.sass
-         * standard
-            * default.sass
-            * reset.sass
-         * site
-            * colors.sass
-            * content.sass
-            * footer.sass
-            * forms.sass
-            * global.sass
-            * header.sass
-            * nav.sass
-            * sidebar.sass
-            * ...
+        * all.sass
+        * print.sass
+        * screen.sass
+        * ie.sass
+        * standard
+          * default.sass
+          * reset.sass
+        * site
+          * colors.sass
+          * content.sass
+          * footer.sass
+          * forms.sass
+          * global.sass
+          * header.sass
+          * nav.sass
+          * sidebar.sass
+          * ...
     * ...
 
 ## How It Works
