@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#! /usr/local/bin/ruby
+
+require 'rubygems'
+require 'sass'
+@errors = []
+
+Dir.chdir(ENV['TM_DIRECTORY'])
+
+i = 1
+until Dir.getwd.match(/sass\/?$/) do
+  if (i &gt; 4) or (Dir.getwd == ENV['TM_PROJECT_DIRECTORY'])
+    puts "Can't find sass dir!"
+    exit
+  end
+  Dir.chdir('../')
+  i += 1
+end
+
+puts "Sass dir = #{Dir.getwd}"
+
+
+sass_files = Dir.open('.') do |d|
+  d.find_all { |f| f.match /\.sass$/ }
+end
+
+sass_files.each do |sass|
+  css = '../' + sass.gsub(/\.sass$/, '.css')
+  puts "Sassifying #{sass}..."
+  sass_file = File.new(sass, 'r')
+  sass_template = sass_file.read
+  sass_file.close
+  sass_engine = Sass::Engine.new(sass_template)
+  begin
+    css_file = File.new(css, 'w')
+    css_file.write(sass_engine.render)
+  rescue Sass::SyntaxError =&gt; e
+    @errors &lt;&lt; { :file =&gt; sass, :e =&gt; e }
+  ensure
+    css_file.close
+  end
+end
+
+unless @errors.empty?
+  puts "\nERRORS were encountered!!"
+  @errors.each { |err| puts "#{err[:file]}, Line #{err[:e].sass_line}: #{err[:e]}" }
+end
+
+# Check if Firefox is running, if so refresh
+`ps -xc|grep -sqi firefox &amp;&amp; osascript &lt;&lt;'APPLESCRIPT'
+   tell app "Firefox" to activate
+   tell app "System Events"
+      if UI elements enabled then
+         keystroke "r" using command down
+         -- Fails if System Preferences &gt; Universal access &gt; "Enable access for assistive devices" is not on 
+      else
+         tell app "Firefox" to Get URL "JavaScript:window.location.reload();" inside window 1
+         -- Fails if Firefox is set to open URLs from external apps in new tabs.
+      end if
+   end tell
+APPLESCRIPT`</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@R</string>
+	<key>name</key>
+	<string>Generate CSS and Refresh FF</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>uuid</key>
+	<string>F4E1104D-37B8-4613-AA95-D5857FBF6F45</string>
+</dict>
+</plist>

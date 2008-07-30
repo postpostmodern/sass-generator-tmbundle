@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#! /usr/local/bin/ruby
+
+require 'rubygems'
+require 'sass'
+@errors = []
+
+Dir.chdir(ENV['TM_DIRECTORY'])
+
+i = 1
+until Dir.getwd.match(/sass\/?$/) do
+  if (i &gt; 4) or (Dir.getwd == ENV['TM_PROJECT_DIRECTORY'])
+    puts "Can't find sass dir!"
+    exit
+  end
+  Dir.chdir('../')
+  i += 1
+end
+
+puts "Sass dir = #{Dir.getwd}"
+
+
+sass_files = Dir.open('.') do |d|
+  d.find_all { |f| f.match /\.sass$/ }
+end
+
+sass_files.each do |sass|
+  css = '../' + sass.gsub(/\.sass$/, '.css')
+  puts "Sassifying #{sass}..."
+  sass_file = File.new(sass, 'r')
+  sass_template = sass_file.read
+  sass_file.close
+  sass_engine = Sass::Engine.new(sass_template)
+  begin
+    css_file = File.new(css, 'w')
+    css_file.write(sass_engine.render)
+  rescue Sass::SyntaxError =&gt; e
+    @errors &lt;&lt; { :file =&gt; sass, :e =&gt; e }
+  ensure
+    css_file.close
+  end
+end
+
+unless @errors.empty?
+  puts "\nERRORS were encountered!!"
+  @errors.each { |err| puts "#{err[:file]}, Line #{err[:e].sass_line}: #{err[:e]}" }
+end
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Generate CSS</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>uuid</key>
+	<string>6FA7B052-B6F0-451C-8884-5537DE49CA7F</string>
+</dict>
+</plist>
