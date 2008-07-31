@@ -1,6 +1,6 @@
-# SASS Generator
+# Sass Generator
 
-This TextMate bundle allows you to easily generate CSS files from a folder of SASS files.
+This TextMate bundle allows you to easily generate CSS files from a folder of Sass files.
 
 There are two self-explanatory commands included:
 
@@ -15,7 +15,7 @@ In the terminal, navigate to your Bundles folder:
 
 Then, git it:
 
-`git clone git://github.com/postpostmodern/sass-generator-tmbundle.git "SASS Generator.tmbundle"`
+`git clone git://github.com/postpostmodern/sass-generator-tmbundle.git "Sass Generator.tmbundle"`
 
 Finally, if TextMate is already running, reload your bundles:
 
@@ -56,9 +56,9 @@ Finally, if TextMate is already running, reload your bundles:
 
 ## How It Works
 
-When editing a SASS file, hitting cmd-r will cause TextMate to walk up the directory tree until it finds the **sass/** directory. 
+When editing a Sass file, hitting cmd-r will cause TextMate to walk up the directory tree until it finds the **sass/** directory. 
 It will convert each file in the **sass/** dir to CSS and place the resulting .css files in the parent directory 
 of the **sass/** dir (usually **css/**). It will not drill down into the subdirs of **sass/**. Those subdirs (e.g. 
-**site/** and **standard/**) should contain files that are included in the main SASS files (all.sass, print.sass, 
+**site/** and **standard/**) should contain files that are included in the main Sass files (all.sass, print.sass, 
 etc.).
 
