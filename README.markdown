@@ -9,7 +9,7 @@ There are two self-explanatory commands included:
 
 ## Installation
 
-`cd ~/Library/Application Support/TextMate/Bundles/`  
+`cd "~/Library/Application Support/TextMate/Bundles/"`  
 `git clone git://github.com/postpostmodern/sass-generator-tmbundle.git "SASS Generator.tmbundle"`
 
 ## Example File Structure
