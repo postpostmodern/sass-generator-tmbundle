@@ -9,10 +9,15 @@ There are two self-explanatory commands included:
 
 ## Installation
 
-`cd ~/Library/Application\ Support/TextMate/Bundles/`  
+In the terminal, navigate to your Bundles folder:
+
+`cd ~/Library/Application\ Support/TextMate/Bundles/`
+
+Then, git it:
+
 `git clone git://github.com/postpostmodern/sass-generator-tmbundle.git "SASS Generator.tmbundle"`
 
-Then, if TextMate is already running, reload your bundles:
+Finally, if TextMate is already running, reload your bundles:
 
 `osascript -e 'tell app "TextMate" to reload bundles'`
 
