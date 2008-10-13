@@ -7,7 +7,7 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 require "#{ENV['TM_BUNDLE_SUPPORT']}/sassify.rb"
-sassify(ENV['TM_DIRECTORY'], ENV['TM_PROJECT_DIRECTORY'], false)
+sassify(ENV['TM_DIRECTORY'], ENV['TM_PROJECT_DIRECTORY'])
 
 # Check if Firefox is running, if so refresh
 `ps -xc|grep -sqi firefox &amp;&amp; osascript &lt;&lt;'APPLESCRIPT'
@@ -25,14 +25,14 @@ APPLESCRIPT`</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>~@R</string>
+	<string>@R</string>
 	<key>name</key>
-	<string>Generate CSS and Refresh FF</string>
+	<string>Generate Packed CSS and Refresh FF</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
 	<string>source.sass</string>
 	<key>uuid</key>
-	<string>F4E1104D-37B8-4613-AA95-D5857FBF6F45</string>
+	<string>091ED553-CA1F-473E-B7BE-3A8AF9C85EC4</string>
 </dict>
 </plist>

@@ -2,10 +2,14 @@
 
 This TextMate bundle allows you to easily generate CSS files from a folder of Sass files.
 
-There are two self-explanatory commands included:
+There are four commands included:
 
-* Generate CSS (cmd-r)
-* Generate CSS and refresh Firefox (cmd-shift-r)
+* Generate Packed CSS (cmd-r)
+* Generate Packed CSS and refresh Firefox (cmd-shift-r)
+* Generate CSS (cmd-opt-r)
+* Generate CSS and refresh Firefox (cmd-opt-shift-r)
+
+__NEW:__ The 'packed' versions of the commands use [Rainpress](http://code.google.com/p/rainpress/) to minify/optimize the CSS.
 
 ## Installation
 

@@ -7,18 +7,18 @@
 	<key>command</key>
 	<string>#!/usr/bin/env ruby
 require "#{ENV['TM_BUNDLE_SUPPORT']}/sassify.rb"
-sassify(ENV['TM_DIRECTORY'], ENV['TM_PROJECT_DIRECTORY'], false)</string>
+sassify(ENV['TM_DIRECTORY'], ENV['TM_PROJECT_DIRECTORY'])</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
-	<string>~@r</string>
+	<string>@r</string>
 	<key>name</key>
-	<string>Generate CSS</string>
+	<string>Generate Packed CSS</string>
 	<key>output</key>
 	<string>showAsTooltip</string>
 	<key>scope</key>
 	<string>source.sass</string>
 	<key>uuid</key>
-	<string>6FA7B052-B6F0-451C-8884-5537DE49CA7F</string>
+	<string>27157BB3-2D33-4303-9867-6FBB54C053B0</string>
 </dict>
 </plist>
